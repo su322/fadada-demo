@@ -1,0 +1,29 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: fadada-demo
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+logging:
+  level:
+    root: info
+    com.yulintu.fadada.demo: debug
+
+# 测试环境
+fadada:
+  endpoint: https://uat-api.fadada.com/api/v5/
+  app-id: 
+  app-secret: 
+
+# 添加 Forest 变量映射，解决无法解析 ${fadada.endpoint} 的问题
+forest:
+  variables:
+    fadada.endpoint: ${fadada.endpoint}
+    fadada.appId: ${fadada.app-id}
+    fadada.appSecret: ${fadada.app-secret}

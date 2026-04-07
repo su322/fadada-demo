@@ -1,11 +1,6 @@
 package com.yulintu.fadada.demo.configs;
 
-import com.fasc.open.api.v5_1.client.CorpClient;
-import com.fasc.open.api.v5_1.client.OpenApiClient;
-import com.fasc.open.api.v5_1.client.ServiceClient;
-import com.fasc.open.api.v5_1.client.UserClient;
-import com.fasc.open.api.v5_1.client.SignTaskClient;
-import com.fasc.open.api.v5_1.client.DocClient;
+import com.fasc.open.api.v5_1.client.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -54,5 +49,10 @@ public class FadadaSdkConfig {
     @Bean
     public DocClient docClient(OpenApiClient openApiClient) {
         return new DocClient(openApiClient);
+    }
+
+    @Bean
+    public AppClient appClient(OpenApiClient openApiClient) {
+        return new AppClient(openApiClient);
     }
 }

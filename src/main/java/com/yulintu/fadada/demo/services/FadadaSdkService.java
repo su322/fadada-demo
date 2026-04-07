@@ -2,6 +2,7 @@ package com.yulintu.fadada.demo.services;
 
 import com.fasc.open.api.bean.base.BaseRes;
 import com.fasc.open.api.exception.ApiException;
+import com.fasc.open.api.v5_1.req.app.GetAppOpenIdListReq;
 import com.fasc.open.api.v5_1.req.corp.GetCorpAuthResourceUrlReq;
 import com.fasc.open.api.v5_1.req.corp.GetCorpReq;
 import com.fasc.open.api.v5_1.req.doc.FileProcessReq;
@@ -10,6 +11,7 @@ import com.fasc.open.api.v5_1.req.doc.GetUploadUrlReq;
 import com.fasc.open.api.v5_1.req.signtask.*;
 import com.fasc.open.api.v5_1.req.user.GetUserAuthUrlReq;
 import com.fasc.open.api.v5_1.req.user.GetUserReq;
+import com.fasc.open.api.v5_1.res.app.GetAppOpenIdListRes;
 import com.fasc.open.api.v5_1.res.common.ECorpAuthUrlRes;
 import com.fasc.open.api.v5_1.res.common.EUrlRes;
 import com.fasc.open.api.v5_1.res.corp.CorpRes;
@@ -49,7 +51,13 @@ public interface FadadaSdkService {
 
     BaseRes<GetSignTaskPreviewUrlRes> getSignTaskPreviewUrl(GetSignTaskUrlReq req) throws ApiException;
 
-    BaseRes<CorpRes> getCorpAuthState(GetCorpReq query) throws ApiException;
+    BaseRes<CorpRes> getCorpAuthState(GetCorpReq req) throws ApiException;
 
     BaseRes<ECorpAuthUrlRes> getCorpAuthUrl(GetCorpAuthResourceUrlReq request) throws ApiException;
+
+    BaseRes<Void> cancelSignTask(SignTaskCancelReq req) throws ApiException;
+
+    BaseRes<CancelSignTaskCreateRes> abolishSignTask(CancelSignTaskCreateReq req) throws ApiException;
+
+    BaseRes<GetAppOpenIdListRes> getOpenIdList(GetAppOpenIdListReq req) throws ApiException;
 }

@@ -2,6 +2,7 @@ package com.yulintu.fadada.demo.controllers;
 
 import com.fasc.open.api.bean.base.BaseRes;
 import com.fasc.open.api.exception.ApiException;
+import com.fasc.open.api.v5_1.req.app.GetAppOpenIdListReq;
 import com.fasc.open.api.v5_1.req.corp.GetCorpAuthResourceUrlReq;
 import com.fasc.open.api.v5_1.req.corp.GetCorpReq;
 import com.fasc.open.api.v5_1.req.doc.FileProcessReq;
@@ -10,6 +11,7 @@ import com.fasc.open.api.v5_1.req.doc.GetUploadUrlReq;
 import com.fasc.open.api.v5_1.req.signtask.*;
 import com.fasc.open.api.v5_1.req.user.GetUserAuthUrlReq;
 import com.fasc.open.api.v5_1.req.user.GetUserReq;
+import com.fasc.open.api.v5_1.res.app.GetAppOpenIdListRes;
 import com.fasc.open.api.v5_1.res.common.ECorpAuthUrlRes;
 import com.fasc.open.api.v5_1.res.common.EUrlRes;
 import com.fasc.open.api.v5_1.res.corp.CorpRes;
@@ -158,6 +160,26 @@ public class FadadaSdkController {
     }
 
     /**
-     *
+     * 撤销签署任务
      */
+    @PostMapping("/sign-task/cancel")
+    public BaseRes<Void> cancelSignTask(@RequestBody SignTaskCancelReq request) throws ApiException {
+        return fadadaSdkService.cancelSignTask(request);
+    }
+
+    /**
+     * 作废签署任务
+     */
+    @PostMapping("/sign-task/abolish")
+    public BaseRes<CancelSignTaskCreateRes> abolishSignTask(@RequestBody CancelSignTaskCreateReq request) throws ApiException {
+        return fadadaSdkService.abolishSignTask(request);
+    }
+
+    /**
+     * 查询授权用户列表
+     */
+    @PostMapping("/app/get-openId-list")
+    public BaseRes<GetAppOpenIdListRes> getOpenIdList(@RequestBody GetAppOpenIdListReq request) throws ApiException {
+        return fadadaSdkService.getOpenIdList(request);
+    }
 }

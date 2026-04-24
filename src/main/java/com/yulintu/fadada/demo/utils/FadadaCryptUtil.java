@@ -11,7 +11,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
- * 官方的FddCryptUtil没有找到，但是如果用sdk的话应该就不用考虑了吧
+ * 官方的FddCryptUtil没有找到，但是如果用sdk的话应该就不用考虑了吧 todo 找到了，也在sdk里
  */
 public class FadadaCryptUtil {
 
